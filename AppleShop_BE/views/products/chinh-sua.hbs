@@ -1,0 +1,29 @@
+<form method="post" action="/san-pham/{{product._id}}/detail" enctype="multipart/form-data">
+    <input type="text" name="name" value="{{product.name}}" placeholder="Nhập sản phẩm" /> <br />
+    <input type="text" name="param" value="{{product.param}}" placeholder="Nhập thông số"/> <br />
+    <input type="number" name="year" value="{{product.year}}" placeholder="Năm sản xuất" /> <br />
+    <input type="number" name="price" value="{{product.price}}" placeholder="Giá" /> <br />
+    <input type="file" name="image" value="{{product.image}}" onchange="loadFile(event);" /> <br />
+    <img width="250" height="250" id="img-display" alt="Image" src="{{product.image}}"><br />
+    <select name="categoryId">  
+        {{#each categories}}
+        {{#if this.isSelected}}
+        <option selected value="{{this._id}}">{{this.name}}</option>
+        {{else}}
+        <option value="{{this._id}}">{{this.name}}</option>
+        {{/if}}
+        {{/each}}
+    </select><br />
+    <input type="submit" value="Tạo mới"/> <br />
+</form>
+
+<script>
+    const loadFile = function (event) {
+        const reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('img-display');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+</script>

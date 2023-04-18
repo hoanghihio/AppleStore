@@ -1,0 +1,14 @@
+.san-pham {
+    width: 1000px;
+  }
+body{
+    background-color: cornflowerblue;
+  }
+  .danh_sach {
+    width: 1000px;
+    text-align: center;
+    margin-left: 186px;
+  }
+  .mau{
+    background-color: antiquewhite;
+  }
